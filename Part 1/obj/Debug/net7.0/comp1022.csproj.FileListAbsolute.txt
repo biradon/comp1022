@@ -1,0 +1,5 @@
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\obj\Debug\net7.0\comp1022.csproj.AssemblyReference.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\obj\Debug\net7.0\comp1022.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\obj\Debug\net7.0\comp1022.AssemblyInfoInputs.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\obj\Debug\net7.0\comp1022.AssemblyInfo.cs
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\obj\Debug\net7.0\comp1022.csproj.CoreCompileInputs.cache

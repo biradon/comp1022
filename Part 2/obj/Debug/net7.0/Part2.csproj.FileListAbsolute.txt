@@ -1,0 +1,15 @@
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\bin\Debug\net7.0\Part2.exe
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\bin\Debug\net7.0\Part2.deps.json
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\bin\Debug\net7.0\Part2.runtimeconfig.json
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\bin\Debug\net7.0\Part2.dll
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\bin\Debug\net7.0\Part2.pdb
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\obj\Debug\net7.0\Part2.csproj.AssemblyReference.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\obj\Debug\net7.0\Part2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\obj\Debug\net7.0\Part2.AssemblyInfoInputs.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\obj\Debug\net7.0\Part2.AssemblyInfo.cs
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\obj\Debug\net7.0\Part2.csproj.CoreCompileInputs.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\obj\Debug\net7.0\Part2.dll
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\obj\Debug\net7.0\refint\Part2.dll
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\obj\Debug\net7.0\Part2.pdb
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\obj\Debug\net7.0\Part2.genruntimeconfig.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Part2\obj\Debug\net7.0\ref\Part2.dll
