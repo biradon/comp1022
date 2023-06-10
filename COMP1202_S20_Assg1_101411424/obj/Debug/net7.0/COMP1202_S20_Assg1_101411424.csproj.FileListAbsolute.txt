@@ -1,0 +1,15 @@
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\bin\Debug\net7.0\COMP1202_S20_Assg1_101411424.exe
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\bin\Debug\net7.0\COMP1202_S20_Assg1_101411424.deps.json
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\bin\Debug\net7.0\COMP1202_S20_Assg1_101411424.runtimeconfig.json
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\bin\Debug\net7.0\COMP1202_S20_Assg1_101411424.dll
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\bin\Debug\net7.0\COMP1202_S20_Assg1_101411424.pdb
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\obj\Debug\net7.0\COMP1202_S20_Assg1_101411424.csproj.AssemblyReference.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\obj\Debug\net7.0\COMP1202_S20_Assg1_101411424.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\obj\Debug\net7.0\COMP1202_S20_Assg1_101411424.AssemblyInfoInputs.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\obj\Debug\net7.0\COMP1202_S20_Assg1_101411424.AssemblyInfo.cs
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\obj\Debug\net7.0\COMP1202_S20_Assg1_101411424.csproj.CoreCompileInputs.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\obj\Debug\net7.0\COMP1202_S20_Assg1_101411424.dll
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\obj\Debug\net7.0\refint\COMP1202_S20_Assg1_101411424.dll
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\obj\Debug\net7.0\COMP1202_S20_Assg1_101411424.pdb
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\obj\Debug\net7.0\COMP1202_S20_Assg1_101411424.genruntimeconfig.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\COMP1202_S20_Assg1_101411424\obj\Debug\net7.0\ref\COMP1202_S20_Assg1_101411424.dll
