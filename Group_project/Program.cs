@@ -84,6 +84,8 @@ namespace Assignment2
             a += "In stock: " + quantity + "\n";
             return a;
         }
+
+
     }
 
     class VideoGameShop
@@ -155,18 +157,73 @@ namespace Assignment2
             // Print all the game have in file
             for (int i = 0; i < lines.Length-1; i++)
             {
+                // Split each element in 1 line become variable
                 string[] fields = lines[i].Split(',');
                 int itemNumber = int.Parse(fields[0]);
                 double price = double.Parse(fields[2]);
                 double userRating = double.Parse(fields[3]);
                 int quantity = int.Parse(fields[4]);
 
+                // Add variable to the VideoGame class
                 game = new VideoGame(itemNumber, fields[1],price,userRating,quantity);
+                
+                // Add the video to the gameShop
                 gameShop.addVideoGame(game);
-                Console.Write(game.gameInfo());
             }
 
-            Console.WriteLine("This is my first game:" + gameShop.videoGames[0].gameInfo());
+            
+            Console.WriteLine("This is my first game:" + gameShop.videoGames[0].getItemName());
+
+
+            // Search by itemNumber
+            // Console.WriteLine("Please input item number you want to search: ");
+            // string userInput = Console.ReadLine();
+            // int searchNumber = int.Parse(userInput);
+            // for (int i = 0; i < lines.Length-1; i++)
+            // {
+            //     if (searchNumber == gameShop.videoGames[i].getItemNumber())
+            //     {
+            //         Console.WriteLine("This is the game you looking for: " + gameShop.videoGames[i].gameInfo());
+            //         break;
+            //     } else
+            //     {
+            //         Console.WriteLine("Please try again");
+            //     }
+            // }
+
+            // Search by price
+            Console.WriteLine("Please input price you want to search: ");
+            string userInput1 = Console.ReadLine();
+            int searchPrice = int.Parse(userInput1);
+            for (int i = 0; i < lines.Length-1; i++)
+            {
+                if (searchPrice >= gameShop.videoGames[i].getPrice())
+                {
+                    Console.WriteLine("This is the game you looking for: " + gameShop.videoGames[i].gameInfo());
+                } 
+            }
+
+
+            // Statistical analysis
+            double sum = 0;
+            double max = 0;
+            double min = 0;
+            for (int i = 0; i < lines.Length-1; i++)
+            {
+                sum = sum + gameShop.videoGames[i].getPrice();
+                if( max < gameShop.videoGames[i].getPrice() )
+                {
+                    max = gameShop.videoGames[i].getPrice();
+                }
+                if (min > gameShop.videoGames[i].getPrice())
+                {
+                    min = gameShop.videoGames[i].getPrice();
+                }
+            }            
+            double mean = sum / lines.Length;
+            Console.WriteLine("This is the mean: " + mean);
+            Console.WriteLine("This is the max number: " + max + "$");
+            Console.WriteLine("This is the min number: " + min + "$");
         }
     }
 }
