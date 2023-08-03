@@ -1,0 +1,15 @@
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\obj\Debug\net7.0\Group_project.csproj.AssemblyReference.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\obj\Debug\net7.0\Group_project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\obj\Debug\net7.0\Group_project.AssemblyInfoInputs.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\obj\Debug\net7.0\Group_project.AssemblyInfo.cs
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\obj\Debug\net7.0\Group_project.csproj.CoreCompileInputs.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\bin\Debug\net7.0\Group_project.exe
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\bin\Debug\net7.0\Group_project.deps.json
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\bin\Debug\net7.0\Group_project.runtimeconfig.json
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\bin\Debug\net7.0\Group_project.dll
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\bin\Debug\net7.0\Group_project.pdb
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\obj\Debug\net7.0\Group_project.dll
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\obj\Debug\net7.0\refint\Group_project.dll
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\obj\Debug\net7.0\Group_project.pdb
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\obj\Debug\net7.0\Group_project.genruntimeconfig.cache
+C:\Users\biradon\OneDrive - George Brown College\Desktop\comp1022\Group_project\obj\Debug\net7.0\ref\Group_project.dll

@@ -1,0 +1,16 @@
+1256, Zelda_Tears_of_The_Kingdom, 60, 5, 21
+4567, Hollow_Knight, 15, 5, 5
+6791, Fifa23, 40, 3, 2
+0299, COD_BlackopsIII, 40, 4, 1
+1872, Minecraft, 20, 5, 13
+9823, Assassin's_Creed_Valhalla, 50, 4.5, 10
+3789, The_Last_of_Us_Part_II, 45, 4.8, 12
+5372, Cyberpunk_2077, 55, 3.9, 8
+8461, Red_Dead_Redemption_2, 50, 4.7, 15
+7198, Among_Us, 10, 4.2, 7
+6543, Animal_Crossing_New_Horizons, 40, 4.6, 11
+2456, The_Witcher_3_Wild_Hunt, 25, 4.9, 18
+8356, Fortnite, 0, 4.4, 25
+1735, Call_of_Duty_Warzone, 20, 4.3, 9
+3992, Apex_Legends, 30, 4.5, 14
+
