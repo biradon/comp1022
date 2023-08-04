@@ -79,7 +79,7 @@ namespace Assignment2
             string a = "\n**************************\n";
             a += "Game Number: " + itemNumber + "\n";
             a += "Name: " + itemName + "\n";
-            a += "Price: " + price + "\n";
+            a += "Price: " + price + "$" + "\n";
             a += "Rating: " + userRating + "\n";
             a += "In stock: " + quantity + "\n";
             return a;
@@ -123,15 +123,15 @@ namespace Assignment2
         }
 
         // Print the list of video 
-        public string getVideoGameList()
-        {
-            string s = "==== Video Game List ====\n";
-            for (int i = 0; i < maxVideoGame; i++)
-            {
-                s = s + videoGames[i].ToString() + "\n";
-            }
-            return s;
-        }
+        // public string getVideoGameList()
+        // {
+        //     string s = "==== Video Game List ====\n";
+        //     for (int i = 0; i < maxVideoGame; i++)
+        //     {
+        //         s = s + videoGames[i].ToString() + "\n";
+        //     }
+        //     return s;
+        // }
 
         // Print the Shop info
         public string shopInfo()
@@ -140,7 +140,7 @@ namespace Assignment2
             s += "Shop Name: " + shopName + "\n";
             s += "Location: " + shopAddress + "\n";
             s += "Phone Number: " + shopPhone + "\n";
-            s += getVideoGameList() + "\n";
+            // s += getVideoGameList() + "\n";
             return s;
         }
     }
@@ -150,11 +150,9 @@ namespace Assignment2
         {
             VideoGameShop gameShop = new VideoGameShop("The Gang", "160 Kendal Ave","123-456-7890", 100);
             VideoGame game = null;
+            bool menu = true;
 
-            // Read the file
             string[] lines = File.ReadAllLines("VideoGame.txt");
-
-            // Print all the game have in file
             for (int i = 0; i < lines.Length-1; i++)
             {
                 // Split each element in 1 line become variable
@@ -171,59 +169,171 @@ namespace Assignment2
                 gameShop.addVideoGame(game);
             }
 
-            
-            Console.WriteLine("This is my first game:" + gameShop.videoGames[0].getItemName());
+
+            Console.WriteLine("Hello, Welcome to our shop");
+            Console.WriteLine("This is our shop info\n");
+            Console.WriteLine(gameShop.shopInfo());
+            Console.WriteLine("\nCould you let me know what's your name?");
+            string userName = Console.ReadLine();
+            Console.WriteLine("Hi " + userName + " nice to meet you!");
+            Console.WriteLine("This is how you can do in our shop, " + userName + " take your time in here");
+            while(menu)
+            {
+                Console.WriteLine("\nPlease click the number correcsponde to which option you want to use: \n");
+                Console.WriteLine("1. Adding new Products");
+                Console.WriteLine("2. Searching based on Item Number");
+                Console.WriteLine("3. Searching based on Item Price");
+                Console.WriteLine("4. Statiscal Info about Game");
+                Console.WriteLine("5. Exit\n");
+                int selectMenu;
+                while(!int.TryParse(Console.ReadLine(), out selectMenu))
+                {
+                    Console.WriteLine("\nOnly input number, please try again\n");
+                    Console.WriteLine("1. Adding new Products");
+                    Console.WriteLine("2. Searching based on Item Number");
+                    Console.WriteLine("3. Searching based on Item Price");
+                    Console.WriteLine("4. Statiscal Info about Game");
+                    Console.WriteLine("5. Exit\n");
+                }
+                switch(selectMenu)
+                {
+                    case 1:
+                        // Code go here
+                        break;
+                    case 2:
+                        // Code go here
+                        break;
+                    case 3:
+                        searchByPrice(lines, gameShop);
+                        break;
+                    case 4:
+                        Console.WriteLine("\n===========================================\n");
+                        Console.WriteLine("Hello, this feature will show you the mean, the highest game and lowest game in the shop");
+                        Console.WriteLine("Let's get start it!\n");
+                        findMean(lines, gameShop);
+                        findHighest(lines, gameShop);
+                        findLowest(lines, gameShop);
+                        break;
+                    case 5:
+                        menu = false;
+                        Console.WriteLine("\nThank you for coming to our shop, see you again, bye bye!\n");
+                        break;
+                    default:
+                        Console.WriteLine("\nSorry, please try again, only input number from 1 to 5\n");
+                        break;
+                }
+            }
+        }
 
 
-            // Search by itemNumber
-            // Console.WriteLine("Please input item number you want to search: ");
-            // string userInput = Console.ReadLine();
-            // int searchNumber = int.Parse(userInput);
-            // for (int i = 0; i < lines.Length-1; i++)
-            // {
-            //     if (searchNumber == gameShop.videoGames[i].getItemNumber())
-            //     {
-            //         Console.WriteLine("This is the game you looking for: " + gameShop.videoGames[i].gameInfo());
-            //         break;
-            //     } else
-            //     {
-            //         Console.WriteLine("Please try again");
-            //     }
-            // }
 
-            // Search by price
+
+
+
+
+        // Search by price
+        static void searchByPrice(string[] lines, VideoGameShop gameShop)
+        {
+            Console.WriteLine("\n===========================================\n");
+            Console.WriteLine("Hello, this feature will allow you to search for video games in the existing inventory based on maximum price");
+            Console.WriteLine("Let's get start it!");
             Console.WriteLine("Please input price you want to search: ");
-            string userInput1 = Console.ReadLine();
-            int searchPrice = int.Parse(userInput1);
+            int searchPrice;
+            while(!int.TryParse(Console.ReadLine(), out searchPrice))
+            {
+                Console.WriteLine("Only input number, please try again");
+            }
+            bool found = false;
             for (int i = 0; i < lines.Length-1; i++)
             {
                 if (searchPrice >= gameShop.videoGames[i].getPrice())
                 {
-                    Console.WriteLine("This is the game you looking for: " + gameShop.videoGames[i].gameInfo());
+                    Console.WriteLine(gameShop.videoGames[i].gameInfo());
+                    found = true;
                 } 
             }
+            if (!found)
+            {
+                Console.WriteLine("Sorry, no item found");
+            }
+        }
 
 
-            // Statistical analysis
+
+        // Statistical analysis
+        // Calculate the mean
+        static void findMean(string[] lines, VideoGameShop gameShop)
+        {
             double sum = 0;
-            double max = 0;
-            double min = 0;
             for (int i = 0; i < lines.Length-1; i++)
             {
                 sum = sum + gameShop.videoGames[i].getPrice();
-                if( max < gameShop.videoGames[i].getPrice() )
-                {
-                    max = gameShop.videoGames[i].getPrice();
-                }
-                if (min > gameShop.videoGames[i].getPrice())
-                {
-                    min = gameShop.videoGames[i].getPrice();
-                }
-            }            
+            }      
             double mean = sum / lines.Length;
-            Console.WriteLine("This is the mean: " + mean);
-            Console.WriteLine("This is the max number: " + max + "$");
-            Console.WriteLine("This is the min number: " + min + "$");
+            Console.WriteLine("This is the mean: " + mean + "$" + "\n");
+        }
+
+        // Search for the item have highest price
+        static void findHighest(string[] lines, VideoGameShop gameShop)
+        {
+            for (int i = 0; i< lines.Length-1; i++)
+            {
+                double max =  gameShop.videoGames[i].getPrice();
+                int temp = i;
+                for (int j = 1; j < lines.Length-1; j++)
+                {
+                    if( max < gameShop.videoGames[j].getPrice())
+                    {
+                        temp = j;
+                        max = gameShop.videoGames[j].getPrice();
+                    }
+                }
+                Console.WriteLine("This is the highest item in the store");
+                Console.WriteLine(gameShop.videoGames[temp].gameInfo());
+                i = lines.Length - 1;
+            }
+        }
+
+
+
+           // Search for the item have lowest price
+        static void findLowest(string[] lines, VideoGameShop gameShop)
+        {
+            for (int i = 0; i< lines.Length-1; i++)
+            {
+                double min =  gameShop.videoGames[i].getPrice();
+                int temp = i;
+                for (int j = 1; j < lines.Length-1; j++)
+                {
+
+                    if( min > gameShop.videoGames[j].getPrice())
+                    {
+                        temp = j;
+                        min = gameShop.videoGames[j].getPrice();
+                    }
+                }
+                Console.WriteLine("This is the lowest item in the store");
+                Console.WriteLine(gameShop.videoGames[temp].gameInfo());
+                i = lines.Length - 1;
+            }
         }
     }
 }
+
+
+
+        // Search by itemNumber
+        // Console.WriteLine("Please input item number you want to search: ");
+        // string userInput = Console.ReadLine();
+        // int searchNumber = int.Parse(userInput);
+        // for (int i = 0; i < lines.Length-1; i++)
+        // {
+        //     if (searchNumber == gameShop.videoGames[i].getItemNumber())
+        //     {
+        //         Console.WriteLine("This is the game you looking for: " + gameShop.videoGames[i].gameInfo());
+        //         break;
+        //     } else
+        //     {
+        //         Console.WriteLine("Please try again");
+        //     }
+        // }
