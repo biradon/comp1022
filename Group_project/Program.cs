@@ -107,6 +107,7 @@ namespace Assignment2
             this.shopAddress = shopAddress;
             this.shopPhone = shopPhone;
             this.maxVideoGame = maxVideoGame;
+            amountVideoGame = 0;
             videoGames = new VideoGame[maxVideoGame];
         }
 
@@ -123,15 +124,15 @@ namespace Assignment2
         }
 
         // Print the list of video 
-        // public string getVideoGameList()
-        // {
-        //     string s = "==== Video Game List ====\n";
-        //     for (int i = 0; i < maxVideoGame; i++)
-        //     {
-        //         s = s + videoGames[i].ToString() + "\n";
-        //     }
-        //     return s;
-        // }
+        public string getVideoGameList()
+        {
+            string s = "==== Video Game List ====\n";
+            for (int i = 0; i < amountVideoGame; i++)
+            {
+                s = s + videoGames[i].gameInfo() + "\n";
+            }
+            return s;
+        }
 
         // Print the Shop info
         public string shopInfo()
@@ -140,13 +141,12 @@ namespace Assignment2
             s += "Shop Name: " + shopName + "\n";
             s += "Location: " + shopAddress + "\n";
             s += "Phone Number: " + shopPhone + "\n";
-            // s += getVideoGameList() + "\n";
             return s;
         }
     }
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             VideoGameShop gameShop = new VideoGameShop("The Gang", "160 Kendal Ave","123-456-7890", 100);
             VideoGame game = null;
@@ -168,6 +168,8 @@ namespace Assignment2
                 // Add the video to the gameShop
                 gameShop.addVideoGame(game);
             }
+            
+            
 
 
             Console.WriteLine("Hello, Welcome to our shop");
@@ -180,6 +182,7 @@ namespace Assignment2
             while(menu)
             {
                 Console.WriteLine("\nPlease click the number correcsponde to which option you want to use: \n");
+                Console.WriteLine("0. List all the video in shop");
                 Console.WriteLine("1. Adding new Products");
                 Console.WriteLine("2. Searching based on Item Number");
                 Console.WriteLine("3. Searching based on Item Price");
@@ -189,6 +192,7 @@ namespace Assignment2
                 while(!int.TryParse(Console.ReadLine(), out selectMenu))
                 {
                     Console.WriteLine("\nOnly input number, please try again\n");
+                    Console.WriteLine("0. List all the video in shop");
                     Console.WriteLine("1. Adding new Products");
                     Console.WriteLine("2. Searching based on Item Number");
                     Console.WriteLine("3. Searching based on Item Price");
@@ -197,11 +201,14 @@ namespace Assignment2
                 }
                 switch(selectMenu)
                 {
+                    case 0:
+                        Console.WriteLine(gameShop.getVideoGameList());
+                        break;
                     case 1:
                         // Code go here
                         break;
                     case 2:
-                        // Code go here
+                        searchByNumnber(lines, gameShop);
                         break;
                     case 3:
                         searchByPrice(lines, gameShop);
@@ -226,10 +233,31 @@ namespace Assignment2
         }
 
 
-
-
-
-
+        // Search by itemNumber
+        static void searchByNumnber(string[] lines, VideoGameShop gameShop)
+        {
+        bool found = true;
+        while (found)
+        {        
+            Console.WriteLine("Please input item number you want to search: \n");
+            string userInput = Console.ReadLine();
+            int searchNumber = int.Parse(userInput);
+            for (int i = 0; i < lines.Length-1; i++)
+            {
+                if (searchNumber == gameShop.videoGames[i].getItemNumber())
+                {
+                    Console.WriteLine("This is the game you looking for: " + gameShop.videoGames[i].gameInfo());
+                    found = false; // break the while loop
+                    i = lines.Length-1; // break the for loop
+                }
+                if (found)
+                {
+                    Console.WriteLine("Can not find the item");
+                    Console.WriteLine("Please try again\n");
+                }
+            }
+        }
+        }
 
         // Search by price
         static void searchByPrice(string[] lines, VideoGameShop gameShop)
@@ -322,18 +350,10 @@ namespace Assignment2
 
 
 
-        // Search by itemNumber
-        // Console.WriteLine("Please input item number you want to search: ");
-        // string userInput = Console.ReadLine();
-        // int searchNumber = int.Parse(userInput);
-        // for (int i = 0; i < lines.Length-1; i++)
-        // {
-        //     if (searchNumber == gameShop.videoGames[i].getItemNumber())
-        //     {
-        //         Console.WriteLine("This is the game you looking for: " + gameShop.videoGames[i].gameInfo());
-        //         break;
-        //     } else
-        //     {
-        //         Console.WriteLine("Please try again");
-        //     }
-        // }
+
+
+
+
+
+
+        
