@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using static System.Console;
+using System.Text.RegularExpressions;
 
 namespace Assignment2
 {
@@ -152,6 +153,8 @@ namespace Assignment2
             VideoGame game = null;
             bool menu = true;
 
+
+
             string[] lines = File.ReadAllLines("VideoGame.txt");
             for (int i = 0; i < lines.Length-1; i++)
             {
@@ -205,7 +208,7 @@ namespace Assignment2
                         Console.WriteLine(gameShop.getVideoGameList());
                         break;
                     case 1:
-                        // Code go here
+                        addNewVideo(lines, gameShop);
                         break;
                     case 2:
                         searchByNumnber(lines, gameShop);
@@ -232,6 +235,60 @@ namespace Assignment2
             }
         }
 
+
+        // Add new video
+        static void addNewVideo(string[] lines, VideoGameShop gameShop)
+        {
+            // Get the current directory
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string filePath = Path.Combine(currentDirectory, "VideoGame.txt");
+            bool done = true;
+            while(done)
+            {
+                Console.WriteLine("Please input the item number (only 4 digits)\n");
+                string userInput = Console.ReadLine();
+
+                // Only allow number with 4 digits
+                if (Regex.IsMatch(userInput,  @"^\d+$") && userInput.Length == 4)
+                {
+                    // Convert to int to compare
+                    int newItemNumber = int.Parse(userInput);
+                    bool found = true;
+                    for (int i = 0; i < lines.Length-1; i++)
+                    {
+                        // Check duplicate item Number
+                        if (newItemNumber == gameShop.videoGames[i].getItemNumber())
+                        {
+                           Console.WriteLine("Your number is already exist, please choose another number!\n");
+                           found = false;
+                           i = lines.Length - 1;
+                        } 
+                        // If there is no exist number
+                        if (found)
+                        {
+                            Console.WriteLine("Number is valid, let's continue with item name\n");
+                            i = lines.Length - 1;
+                            done = false;
+                        }
+                    }
+                } else
+                {
+                    Console.WriteLine("Invalid! Please input number and only 4 digits\n");
+                }
+
+            }
+
+
+
+            // using( StreamWriter outputFile = new StreamWriter(filePath, true))
+            // {
+            //     string a = "Ha Noi";
+            //     string b = "Saigon";
+            //     string c = "Toronto";
+            //     outputFile.WriteLine($"{a}, {b}, {c}");
+            // }
+
+        }
 
         // Search by itemNumber
         static void searchByNumnber(string[] lines, VideoGameShop gameShop)
