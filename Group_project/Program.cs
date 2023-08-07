@@ -149,15 +149,17 @@ namespace Assignment2
     {
         static void Main(string[] args)
         {
+            // Create an object for Shop
             VideoGameShop gameShop = new VideoGameShop("The Gang", "160 Kendal Ave","123-456-7890", 100);
             VideoGame game = null;
             bool menu = true;
+
+            // Add all of the game from file to the shop
             string[] lines = File.ReadAllLines("VideoGame.txt");
             game = initializeData(lines, gameShop, game);
-            
-            
 
 
+            // Introduction
             Console.WriteLine("Hello, Welcome to our shop");
             Console.WriteLine("This is our shop info\n");
             Console.WriteLine(gameShop.shopInfo());
@@ -165,6 +167,8 @@ namespace Assignment2
             string userName = Console.ReadLine();
             Console.WriteLine("Hi " + userName + " nice to meet you!");
             Console.WriteLine("This is how you can do in our shop, " + userName + " take your time in here");
+            
+            // Main menu
             while(menu)
             {
                 Console.WriteLine("\nPlease click the number correcsponde to which option you want to use: \n");
@@ -194,15 +198,12 @@ namespace Assignment2
                         addNewVideo(lines, gameShop, game);
                         break;
                     case 2:
-                        readData(lines, gameShop, game);
                         searchByNumnber(lines, gameShop);
                         break;
                     case 3:
-                        readData(lines, gameShop, game);
                         searchByPrice(lines, gameShop);
                         break;
                     case 4:
-                        readData(lines, gameShop, game);
                         Console.WriteLine("\n===========================================\n");
                         Console.WriteLine("Hello, this feature will show you the mean, the highest game and lowest game in the shop");
                         Console.WriteLine("Let's get start it!\n");
@@ -243,37 +244,21 @@ namespace Assignment2
             return game;
         }
 
-        // Read data from text file
-        static VideoGame readData(string[] lines, VideoGameShop gameShop, VideoGame game)
-        {
-            for (int i = 0; i < lines.Length; i++)
-            {
-                // Split each element in 1 line become variable
-                string[] fields = lines[i].Split(',');
-                int itemNumber = int.Parse(fields[0]);
-                double price = double.Parse(fields[2]);
-                double userRating = double.Parse(fields[3]);
-                int quantity = int.Parse(fields[4]);
-
-                // Add variable to the VideoGame class
-                game = new VideoGame(itemNumber, fields[1],price,userRating,quantity);   
-            }
-            return game;
-        }
-
-
-
         // Add new video
         static void addNewVideo(string[] lines, VideoGameShop gameShop, VideoGame game)
         {
             // Get the current directory
             string currentDirectory = Directory.GetCurrentDirectory();
             string filePath = Path.Combine(currentDirectory, "VideoGame.txt");
+
+            // Set up for the validation loop
             bool done1 = true;
             bool done2 = true;
             bool done3 = true;
             bool done4 = true;
             bool done5 = true;
+
+            // Setup for the input
             string InputItemNumber = null;
             string InputItemName = null;
             string InputItemPrice = null;
@@ -292,20 +277,20 @@ namespace Assignment2
                     // Convert to int to compare
                     int newItemNumber = int.Parse(InputItemNumber);
                     bool found = true;
-                    for (int i = 0; i < lines.Length+1; i++)
+                    for (int i = 0; i < lines.Length; i++)
                     {
                         // Check duplicate item Number
                         if (newItemNumber == gameShop.videoGames[i].getItemNumber())
                         {
                            Console.WriteLine("Your number is already exist, please choose another number!\n");
                            found = false;
-                           i = lines.Length - 1;
+                           i = lines.Length;
                         } 
                         // If there is no exist number
                         if (found)
                         {
                             Console.WriteLine("Number is valid, let's continue with item name\n");
-                            i = lines.Length - 1;
+                            i = lines.Length;
                             done1 = false;
                         }
                     }
@@ -353,7 +338,7 @@ namespace Assignment2
                 float result;
                 Console.WriteLine("Please rate your game (maximum is 5.0) \n");
                 InputItemRating = Console.ReadLine();
-                if (float.TryParse(InputItemRating, out result) && result < 5)
+                if (float.TryParse(InputItemRating, out result) && result <= 5)
                 {
                     Console.WriteLine("Great! Rating is valid, let's move on to the last element");
                     done4 = false;
@@ -406,6 +391,7 @@ namespace Assignment2
         // Search by itemNumber
         static void searchByNumnber(string[] lines, VideoGameShop gameShop)
         {
+        lines = File.ReadAllLines("VideoGame.txt");
         bool done = true;
         while (done)
         {        
@@ -434,12 +420,13 @@ namespace Assignment2
         // Search by price
         static void searchByPrice(string[] lines, VideoGameShop gameShop)
         {
+            lines = File.ReadAllLines("VideoGame.txt");
             Console.WriteLine("\n===========================================\n");
             Console.WriteLine("Hello, this feature will allow you to search for video games in the existing inventory based on maximum price");
             Console.WriteLine("Let's get start it!");
             Console.WriteLine("Please input price you want to search: ");
-            int searchPrice;
-            while(!int.TryParse(Console.ReadLine(), out searchPrice))
+            double searchPrice;
+            while(!double.TryParse(Console.ReadLine(), out searchPrice))
             {
                 Console.WriteLine("Only input number, please try again");
             }
@@ -464,6 +451,7 @@ namespace Assignment2
         // Calculate the mean
         static void findMean(string[] lines, VideoGameShop gameShop)
         {
+            lines = File.ReadAllLines("VideoGame.txt");
             double sum = 0;
             for (int i = 0; i < lines.Length; i++)
             {
@@ -476,6 +464,7 @@ namespace Assignment2
         // Search for the item have highest price
         static void findHighest(string[] lines, VideoGameShop gameShop)
         {
+            lines = File.ReadAllLines("VideoGame.txt");
             for (int i = 0; i< lines.Length; i++)
             {
                 double max =  gameShop.videoGames[i].getPrice();
@@ -499,6 +488,7 @@ namespace Assignment2
            // Search for the item have lowest price
         static void findLowest(string[] lines, VideoGameShop gameShop)
         {
+            lines = File.ReadAllLines("VideoGame.txt");
             for (int i = 0; i< lines.Length; i++)
             {
                 double min =  gameShop.videoGames[i].getPrice();
