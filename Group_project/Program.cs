@@ -242,17 +242,30 @@ namespace Assignment2
             // Get the current directory
             string currentDirectory = Directory.GetCurrentDirectory();
             string filePath = Path.Combine(currentDirectory, "VideoGame.txt");
-            bool done = true;
-            while(done)
+            bool done1 = true;
+            bool done2 = true;
+            bool done3 = true;
+            bool done4 = true;
+            bool done5 = true;
+            string InputItemNumber;
+            string InputItemName;
+            string InputItemPrice;
+            string InputItemRating;
+            string InputItemQuantity;
+
+
+
+            // Validate item number
+            while(done1)
             {
                 Console.WriteLine("Please input the item number (only 4 digits)\n");
-                string userInput = Console.ReadLine();
+                InputItemNumber = Console.ReadLine();
 
                 // Only allow number with 4 digits
-                if (Regex.IsMatch(userInput,  @"^\d+$") && userInput.Length == 4)
+                if (Regex.IsMatch(InputItemNumber,  @"^\d+$") && InputItemNumber.Length == 4)
                 {
                     // Convert to int to compare
-                    int newItemNumber = int.Parse(userInput);
+                    int newItemNumber = int.Parse(InputItemNumber);
                     bool found = true;
                     for (int i = 0; i < lines.Length-1; i++)
                     {
@@ -268,14 +281,45 @@ namespace Assignment2
                         {
                             Console.WriteLine("Number is valid, let's continue with item name\n");
                             i = lines.Length - 1;
-                            done = false;
+                            done1 = false;
                         }
                     }
                 } else
                 {
                     Console.WriteLine("Invalid! Please input number and only 4 digits\n");
                 }
+            }
 
+            // Validate item name
+            while(done2)
+            {
+                Console.WriteLine("Please input the item name\n");
+                InputItemName = Console.ReadLine();
+                if (InputItemName == "")
+                {
+                    Console.WriteLine("Invalid! Please input again");
+                } else
+                {
+                    Console.WriteLine("Name is valid, let's continue with item price");
+                    done2 = false;
+                }
+            }
+
+            // Validate item price
+            while(done3)
+            {
+                float result;
+                Console.WriteLine("Please input the item price (with format 5.0 or 9.5)\n");
+                InputItemPrice = Console.ReadLine();
+                if (float.TryParse(InputItemPrice, out result))
+                {
+                    Console.WriteLine("Price is valid, let's continue with item rating");
+                    done3 = false;
+                } else
+                {
+                    Console.WriteLine("Invalid, please try again with the correct format");
+                    
+                }
             }
 
 
