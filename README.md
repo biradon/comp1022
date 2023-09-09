@@ -1,5 +1,5 @@
-# comp1022
-In this class I learn about C#. This is note how to run the C# in Visual Studio Code
+# comp1022 - Introduction to Object-Oriented Programming
+In this class, I learn about C#. This is a note on how to run the C# in Visual Studio Code
 
 ## Step 0
 To create the new project
